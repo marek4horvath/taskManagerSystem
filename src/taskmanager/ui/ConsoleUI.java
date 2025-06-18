@@ -7,6 +7,7 @@ import taskmanager.service.TaskManager;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -27,6 +28,7 @@ public class ConsoleUI {
         System.out.println("3. Mark task as completed");
         System.out.println("4. Edit task");
         System.out.println("5. Delete task");
+        System.out.println("6. Find tasks by title");
         System.out.println("0. Exit");
         System.out.print("Entry option: ");
 
@@ -72,6 +74,21 @@ public class ConsoleUI {
                         }
                     } catch (IllegalArgumentException e) {
                         System.out.println("Invalid UUID format.");
+                    }
+
+                    break;
+                case "6":
+                    System.out.println("Enter task title: ");
+                    String taskTitle = scanner.nextLine();
+
+                    List<Task> tasks = taskManager.findTasksByTitle(taskTitle);
+                    if (tasks.isEmpty()) {
+                        System.out.println("No tasks found with that title.");
+                    } else {
+                        tasks.forEach(task -> {
+                            System.out.println(task);
+                            System.out.println("-------------");
+                        });
                     }
 
                     break;
