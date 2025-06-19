@@ -1,7 +1,7 @@
-package taskmanager.service;
+package main.java.taskmanager.service;
 
-import taskmanager.model.Priority;
-import taskmanager.model.Task;
+import main.java.taskmanager.model.Priority;
+import main.java.taskmanager.model.Task;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 
 public class TaskManager {
 
-    private List<Task> tasks = new ArrayList<Task>();
+    private final List<Task> tasks = new ArrayList<Task>();
 
     public void addTask(Task task) {
         tasks.add(task);
@@ -24,7 +24,7 @@ public class TaskManager {
         }
 
         IntStream.range(0, tasks.size())
-                .forEach(i -> System.out.println((i + 1) + ". " + tasks.get(i)));
+                .forEach(i -> System.out.println("\n" + (i + 1) + ". " + tasks.get(i)));
     }
 
     public void markTaskAsCompleted(UUID id) {
