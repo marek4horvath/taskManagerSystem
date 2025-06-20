@@ -1,11 +1,14 @@
-package main.java.taskmanager.service;
+package taskmanager.service;
 
-import main.java.taskmanager.model.Priority;
-import main.java.taskmanager.model.Task;
+import org.jetbrains.annotations.NotNull;
+import taskmanager.model.Priority;
+import taskmanager.model.Task;
 
+import java.text.Normalizer;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -72,7 +75,13 @@ public class TaskManager {
     }
 
     public List<Task> findTasksByTitle(String searchTerm) {
-        return tasks.stream().filter(task -> task.getTitle().toLowerCase().contains(searchTerm.toLowerCase()) )
+        String normalizedSearchTerm = normalize(searchTerm);
+
+        return tasks.stream()
+                .filter(task -> {
+                    String normalizedTitle = normalize(task.getTitle());
+                    return normalizedTitle.contains(normalizedSearchTerm);
+                })
                 .collect(Collectors.toList());
     }
 
@@ -80,6 +89,13 @@ public class TaskManager {
         return tasks.stream()
                 .filter(task -> task.isOverdue())
                 .collect(Collectors.toList());
+    }
+
+    private @NotNull String normalize(String input) {
+        if (input == null) return "";
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        normalized = normalized.replaceAll("\\p{M}", "");
+        return normalized.toLowerCase(Locale.ROOT);
     }
 
 }

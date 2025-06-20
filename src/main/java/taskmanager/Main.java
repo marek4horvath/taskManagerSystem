@@ -1,8 +1,8 @@
-package main.java.taskmanager;
+package taskmanager;
 
-import main.java.taskmanager.service.TaskManager;
-import main.java.taskmanager.service.UserManager;
-import main.java.taskmanager.ui.ConsoleUI;
+import taskmanager.service.TaskManager;
+import taskmanager.service.UserManager;
+import taskmanager.ui.ConsoleUI;
 import java.util.Scanner;
 
 public class Main {

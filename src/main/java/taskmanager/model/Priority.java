@@ -1,4 +1,4 @@
-package main.java.taskmanager.model;
+package taskmanager.model;
 
 public enum Priority {
     LOW,

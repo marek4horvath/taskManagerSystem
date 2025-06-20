@@ -1,10 +1,10 @@
-package main.java.taskmanager.ui;
+package taskmanager.ui;
 
-import main.java.taskmanager.model.Task;
-import main.java.taskmanager.model.Priority;
-import main.java.taskmanager.model.User;
-import main.java.taskmanager.service.TaskManager;
-import main.java.taskmanager.service.UserManager;
+import taskmanager.model.Task;
+import taskmanager.model.Priority;
+import taskmanager.model.User;
+import taskmanager.service.TaskManager;
+import taskmanager.service.UserManager;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 

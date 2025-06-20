@@ -1,7 +1,6 @@
-package main.java.taskmanager.service;
+package taskmanager.service;
 
-import main.java.taskmanager.model.Task;
-import main.java.taskmanager.model.User;
+import taskmanager.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
