@@ -19,10 +19,6 @@
 # OS: macOS
 .DS_Store
 
-# Maven
-.mvn/
-!**/src/**/application.properties
-
 # Test coverage, reports
 /coverage/
 *.exec
