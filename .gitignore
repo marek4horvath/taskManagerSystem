@@ -1,0 +1,36 @@
+# Java / Maven / IntelliJ / VS Code / macOS
+
+# Build výstupy
+/target/
+
+# Záložné a dočasné súbory
+*.log
+*.tmp
+*.swp
+*.bak
+
+# IDE: IntelliJ IDEA
+.idea/
+*.iml
+
+# IDE: VS Code
+.vscode/
+
+# OS: macOS
+.DS_Store
+
+# Maven
+.mvn/
+!**/src/**/application.properties
+
+# Test coverage, reports
+/coverage/
+*.exec
+/jacoco.exec
+
+# Logs
+*.log
+
+# Environment a konfigurácie (ak používaš napr. dotenv)
+/.env
+.env.*
